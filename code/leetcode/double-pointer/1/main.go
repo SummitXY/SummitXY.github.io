@@ -1,8 +1,42 @@
 package main
 
+// 给定字符串删除所有空格, 并返回空格个数
+// 要求时间复杂度O(n), 空间复杂度O(1)
+
 import "fmt"
 
 func main() {
+
+	// 字符串必须用切片表示, 不然无法实现要求
+	a := []byte{' ', ' ', ' ', ' ', ' '}
+
+	left, right := 0, 0
+	for right < len(a) {
+		if a[left] != ' ' && a[right] != ' ' {
+			left++
+			right++
+			continue
+		}
+
+		if a[left] == ' ' && a[right] == ' ' {
+			right++
+			continue
+		}
+
+		if a[left] == ' ' && a[right] != ' ' {
+			a[left] = a[right]
+			a[right] = ' '
+			left++
+			right++
+			continue
+		}
+	}
+
+	fmt.Println("the space coun is ", len(a)-left)
+	fmt.Println("the answer is ", a[:left])
+}
+
+func main3() {
 
 	fmt.Println("start")
 
