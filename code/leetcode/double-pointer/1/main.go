@@ -33,7 +33,7 @@ func main() {
 	}
 
 	fmt.Println("the space coun is ", len(a)-left)
-	fmt.Println("the answer is ", a[:left])
+	fmt.Println("the answer string is ", a[:left])
 }
 
 func main3() {
