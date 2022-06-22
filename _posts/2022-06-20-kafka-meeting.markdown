@@ -13,9 +13,19 @@ tags:
 
 ## Part of Core of MQ
 
-### 1. How Kafka guarantee 'consume at least one'
+### 1. At least once & At most once
 
-Kafka guarantees the message consumed at least noce and only once.
+There're two topic:
+1. How does Kafka guarantee all messages consumed
+2. How does Kafka avoid or handle duplicate messages
 
-To producers:
-1. 
+
+In fact, there are lots of messaging system, and Four types of strategy exist:
+1. No Guarantee:
+2. At most once:
+3. At least once:
+4. Exactly once:
+
+
+## Ref
+
