@@ -26,7 +26,10 @@ In fact, there are lots of messaging system, and Four types of strategy exist:
 3. At least once:
 4. Exactly once:
 
-![](https://github.com/SummitXY/img/blob/master/kafka-at-least-once.png)
+![](https://raw.githubusercontent.com/SummitXY/img/master/kafka-at-least-once.png)
+
+
+So why isn't it always exactly once? That's because 
 
 
 ## Ref
