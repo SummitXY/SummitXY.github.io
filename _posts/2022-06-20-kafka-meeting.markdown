@@ -29,7 +29,15 @@ In fact, there are lots of messaging system, and Four types of strategy exist:
 ![](https://raw.githubusercontent.com/SummitXY/img/master/kafka-at-least-once.png)
 
 
-So why isn't it always exactly once? That's because 
+So why isn't it always exactly once? That's because the behaviour in the face of failure is different. Considering a distributed messaging system, we may meet these failure scenarios:
+1. Producer failure
+2. Consumer publish remote call failure
+3. Messaging system failure
+4. Consumer processing failure
+
+
+
+
 
 
 ## Ref
