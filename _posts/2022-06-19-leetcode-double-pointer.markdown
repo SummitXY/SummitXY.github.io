@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "LeetCode: Double Pointer For Array"
-subtitle:   " \"双指针(快慢指针)场景整理\""
+subtitle:   " \"双指针(快慢指针/对撞指针)场景整理\""
 date:       2022-06-19 22:00:00
 author:     "QuXY"
 header-img: "img/post-bg-universe.jpg"
@@ -132,5 +132,56 @@ Assume that faster has walked `f` steps and slower has walked `s` steps and we k
 Assume the distance from head to cycble point (exclude cycle point) is `a`, and the length of cycle (include cycle point) is `b`, so we can get `f = s + n*b` (faster walk more `n*b` steps than slower)
 
 From the above formula , we can get `s = n*b`, and we know walking from head with `a+n*b` steps can get to the cycle point, so let slower walks `a` steps continuely can get to the cycyle point
+
+---
+
+## Problem 3
+
+> This problem is more related with sliding window
+
+[Leetcode209](https://leetcode.cn/problems/minimum-size-subarray-sum/)
+
+Given an array of positive integers nums and a positive integer target, return the minimal length of a contiguous subarray [numsl, numsl+1, ..., numsr-1, numsr] of which the sum is greater than or equal to target. If there is no such subarray, return 0 instead
+
+```go
+func minSubArrayLen(target int, nums []int) int {
+    if len(nums) < 1 {
+        return 0
+    }
+
+    left, right := 0, 0
+    minLen := 1000000
+    sumNow := 0
+    for right < len(nums) {
+        sumNow += nums[right]
+        if sumNow >= target {
+            if right - left + 1 < minLen {
+                minLen = right - left + 1
+            }
+            for left <= right {
+                sumNow -= nums[left]
+                left ++
+                if sumNow >= target {
+                    if right - left + 1 < minLen {
+                        minLen = right - left + 1
+                    }
+                } else {
+                    break
+                }
+            }
+            right ++
+        } else {
+            // < target
+            right ++
+        }
+    }
+
+    if minLen < 1000000 {
+        return minLen
+    }
+    return 0
+}
+
+```
 
 end
